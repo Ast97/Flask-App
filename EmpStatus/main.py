@@ -14,12 +14,11 @@ try:
 except OSError:
     pass
 
-db.init_app(app)
-app.register_blueprint(auth.bp)
-
 @app.route("/")
 def home():
     return redirect(url_for("auth.register"))
 
 if __name__ == "__main__":
+    db.init_app(app)
+    app.register_blueprint(auth.bp)
     app.run(debug = True)
