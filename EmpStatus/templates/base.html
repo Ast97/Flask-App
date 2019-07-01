@@ -1,0 +1,20 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - EmpStatus</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <!-- <h1>EmpStatus</h1> -->
+  <ul>
+    <li style="font-size:24px;color: whitesmoke; padding: 14px; letter-spacing:0.1em">EmpStatus</li>
+      <li style="float:right"><a href="{{ url_for('auth.register') }}">Register</a>
+      <li style="float:right"><a href="{{ url_for('auth.login') }}">Log In</a>
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>

@@ -1,0 +1,19 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - EmpStatus</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style media="screen">
+  body { max-width: 1400px; margin: 0 auto; background: white; height: 100%;}
+</style>
+<nav>
+  <!-- <h1>EmpStatus</h1> -->
+  <ul>
+    <li style="font-size:24px;color: whitesmoke; padding: 14px; letter-spacing:0.1em">EmpStatus</li>
+      <li style="float:right"><a href="{{ url_for('auth.logout') }}">Log Out</a>
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>

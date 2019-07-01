@@ -1,0 +1,25 @@
+{% extends 'baseDashboard.html' %}
+
+<!-- {% block header %}
+  <h1>{% block title %}Welcome {% endblock %}</h1>
+{% endblock %} -->
+
+{% block content %}
+<form method="post">
+  <label for="project">Project Name</label>
+  <select name="project">
+    <option value="selectProject" selected>Select Project</option>
+    <option value="eCAMs">eCAMs</option>
+  </select><br>
+  <label for="date">Date</label>
+  <input type="date" name="date" id="date" required>
+  <label for="status">Status</label>
+  <select name="status">
+    <option value="selectStatus" selected>Select Status</option>
+    <option value="Half Day">Half Day</option>
+    <option value="Day-Off">Day-Off</option>
+    <option value="Work From Home">Work From Home</option>
+  </select><br>
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}

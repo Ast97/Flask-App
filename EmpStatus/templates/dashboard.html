@@ -1,0 +1,30 @@
+{% extends 'baseDashboard.html' %}
+
+{% block header %}
+  <h1>{% block title %}Welcome {% endblock %}</h1>
+{% endblock %}
+{% block content %}
+    <table>
+      <thead>
+        <th>EmpID</th>
+        <th>Name</th>
+        <th>Project</th>
+        <th>Day</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+        {% for post in posts %}
+        <tr>
+          <td>{{post["user_id"]}}</td>
+          <td>{{post["name"]}}</td>
+          <td>{{post["projectName"]}}</td>
+          <td>{{post["day"]}}</td>
+          <td>{{post["statusEmp"]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form action = "{{ url_for('auth.export_excelfile') }}" method="post">
+        <input name="export_excelfile" type="submit" value="Download xlsx File"></input>
+    </form>
+{% endblock %}
